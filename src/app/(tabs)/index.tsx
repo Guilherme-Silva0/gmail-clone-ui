@@ -1,4 +1,4 @@
-import { Input } from '@/components/input'
+import { Input } from '@/components/Input'
 import { View } from 'react-native'
 
 export default function Home() {
