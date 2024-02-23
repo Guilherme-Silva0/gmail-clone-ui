@@ -2,32 +2,39 @@ import { Text, View } from 'react-native'
 import { Avatar } from './Avatar'
 import { MaterialIcons } from '@expo/vector-icons'
 import { colors } from '@/styles/colors'
+import { EmailType } from '@/utils/emails'
 
-export function Email() {
+type EmailProps = {
+  data: EmailType
+}
+
+export function Email({ data }: EmailProps) {
   return (
     <View className="w-full flex-row gap-4">
-      <Avatar source={{ uri: 'https://github.com/Guilherme-Silva0.png' }} />
+      <Avatar source={{ uri: data.avatar }} />
 
       <View className="flex-1">
         <View className="flex-row items-center gap-1">
-          <MaterialIcons
-            name="label-important"
-            size={16}
-            color={colors.yellow[600]}
-          />
+          {data.marker && (
+            <MaterialIcons
+              name="label-important"
+              size={16}
+              color={colors.yellow[600]}
+            />
+          )}
 
           <Text className="text-lg font-subtitle text-gray-400 flex-1">
-            Guilherme Silva
+            {data.name}
           </Text>
 
-          <Text className="text-sm font-body text-gray-400">23 Fev.</Text>
+          <Text className="text-sm font-body text-gray-400">{data.date}</Text>
         </View>
         <Text
           className="text-base font-body text-gray-400"
           numberOfLines={1}
           lineBreakMode="tail"
         >
-          Assunto do e-mail
+          {data.subject}
         </Text>
 
         <View className="flex-row items-center gap-4">
@@ -36,9 +43,14 @@ export function Email() {
             numberOfLines={1}
             lineBreakMode="tail"
           >
-            Menssagem do e-mail
+            {data.message}
           </Text>
-          <MaterialIcons name="star" size={22} color={colors.blue[600]} />
+
+          <MaterialIcons
+            name={data.star ? 'star' : 'star-outline'}
+            size={22}
+            color={data.star ? colors.blue[600] : colors.gray[600]}
+          />
         </View>
       </View>
     </View>
