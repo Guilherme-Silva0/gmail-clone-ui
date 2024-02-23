@@ -11,8 +11,8 @@ export function Avatar({ size = 'medium', ...rest }: AvatarProps) {
       alt="Avatar"
       {...rest}
       className={clsx('rounded-full', {
-        'size-8': size === 'small',
-        'size-10': size === 'medium',
+        'size-9': size === 'small',
+        'size-12': size === 'medium',
       })}
     />
   )
