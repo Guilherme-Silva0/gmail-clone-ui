@@ -1,7 +1,9 @@
+import { View } from 'react-native'
+
 import { Avatar } from '@/components/Avatar'
+import { Email } from '@/components/Email'
 import { Input } from '@/components/Input'
 import { MenuButton } from '@/components/MenuButton'
-import { View } from 'react-native'
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
           source={{ uri: 'https://github.com/Guilherme-Silva0.png' }}
         />
       </Input>
+
+      <Email />
     </View>
   )
 }
