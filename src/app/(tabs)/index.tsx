@@ -5,6 +5,7 @@ import { Email } from '@/components/Email'
 import { Input } from '@/components/Input'
 import { MenuButton } from '@/components/MenuButton'
 import { EMAILS } from '@/utils/emails'
+import { FloatButton } from '@/components/FloatButton'
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         data={EMAILS}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <Email data={item} />}
+        showsVerticalScrollIndicator={false}
         contentContainerClassName="gap-6"
         ListHeaderComponent={() => (
           <Text className="uppercase text-gray-400 text-sm font-subtitle mt-6">
@@ -29,6 +31,8 @@ export default function Home() {
           </Text>
         )}
       />
+
+      <FloatButton icon="edit" text="Escrever" />
     </View>
   )
 }
